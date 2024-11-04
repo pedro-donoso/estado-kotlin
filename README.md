@@ -1,4 +1,4 @@
-![pantalla](https://github.com/user-attachments/assets/57e43641-593f-4870-af07-943f46c80681)
+![pantalla](https://github.com/user-attachments/assets/8b5f9180-176e-4d78-af06-7c1ba50242f1)
 
 ### 1. Habilito viewbinding y databinding:
 
