@@ -1,3 +1,5 @@
+![pantalla](https://github.com/user-attachments/assets/57e43641-593f-4870-af07-943f46c80681)
+
 ### 1. Habilito viewbinding y databinding:
 
  ```
@@ -60,4 +62,15 @@ creo directory -> layout -> layout resource file -> activity_main
              <category android:name="android.intent.category.LAUNCHER" />
        </intent-filter>
 </activity>
+```
+
+### 6. Agrego Permiso Internet en Manifest:
+
+```
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
 ```
