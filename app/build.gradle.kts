@@ -57,6 +57,9 @@ android {
 
 dependencies {
 
+    implementation(libs.coil.compose)
+    implementation(libs.androidx.room.ktx)
+
     val nav_version = "2.7.7"
     // Navigation
     implementation(libs.androidx.navigation.fragment.ktx)
