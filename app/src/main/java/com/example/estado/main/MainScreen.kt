@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 
@@ -19,7 +20,7 @@ import coil.compose.rememberAsyncImagePainter
 fun MainScreen(bookViewModel: BookViewModel) {
     val state = bookViewModel.state
 
-    if (state.isLoading)
+    if (state.isLoading) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
@@ -27,36 +28,54 @@ fun MainScreen(bookViewModel: BookViewModel) {
             CircularProgressIndicator()
             Text(text = "Cargando...", color = Color.Blue, modifier = Modifier.padding(top = 100.dp))
         }
-
-    LazyColumn(modifier = Modifier.fillMaxWidth()) {
-        items(state.books) { book ->
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                // Imagen del libro
-                Image(
-                    painter = rememberAsyncImagePainter(book.coverUrl),
-                    contentDescription = "Cover of ${book.title}",
+    } else {
+        LazyColumn(modifier = Modifier.fillMaxWidth()) {
+            items(state.books) { book ->
+                Row(
                     modifier = Modifier
-                        .width(150.dp)
-                        .height(200.dp)
-                        .padding(end = 16.dp)
-                )
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    // Imagen del libro
+                    Image(
+                        painter = rememberAsyncImagePainter(book.coverUrl),
+                        contentDescription = "Cover of ${book.title}",
+                        modifier = Modifier
+                            .width(150.dp)
+                            .height(200.dp)
+                            .padding(end = 16.dp)
+                    )
 
-                // Contenedor para el título y el autor
-                Column(modifier = Modifier.weight(1f).clickable {
-                    bookViewModel.onBookClicked(book)
-                }) {
-                    Text(text = book.title, modifier = Modifier.padding(bottom = 4.dp))
-                    Text(text = book.author)
+                    // Contenedor para el título y el autor
+                    Column(modifier = Modifier.weight(1f).clickable {
+                        bookViewModel.onBookClicked(book)
+                    }) {
+                        Text(
+                            text = "Título: ",
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(bottom = 4.dp)
+                        )
+                        Text(text = book.title, modifier = Modifier.padding(bottom = 4.dp))
+
+                        Text(
+                            text = "Autor: ",
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(bottom = 4.dp)
+                        )
+                        Text(text = book.author, modifier = Modifier.padding(bottom = 4.dp))
+
+                        Text(
+                            text = "Año: ",
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(bottom = 4.dp)
+                        )
+                        Text(text = book.year.toString(), modifier = Modifier.padding(bottom = 4.dp))
+                    }
                 }
-            }
 
-            HorizontalDivider(thickness = 1.dp, color = Color.Gray)
+                HorizontalDivider(thickness = 1.dp, color = Color.Gray)
+            }
         }
     }
 }
