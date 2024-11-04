@@ -51,14 +51,13 @@ creo directory -> layout -> layout resource file -> activity_main
 
 ```
 <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+    android:name=".MainActivity"
+    android:exported="true"
+    android:label="@string/app_name"
+    android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+       <intent-filter>
+          <action android:name="android.intent.action.MAIN" />
+             <category android:name="android.intent.category.LAUNCHER" />
+       </intent-filter>
 </activity>
 ```
