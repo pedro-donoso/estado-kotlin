@@ -1,10 +1,11 @@
-package com.example.estado
+package com.example.estado.main
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Divider
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -12,18 +13,28 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.example.estado.main.BookViewModel
 
 @Composable
 fun MainScreen(bookViewModel: BookViewModel) {
+    val state = bookViewModel.state
+
+    if (state.isLoading)
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            CircularProgressIndicator()
+            Text(text = "Cargando...", color = Color.Blue, modifier = Modifier.padding(top = 100.dp))
+        }
+
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
-        items(bookViewModel.books.value) { book ->
-            // Contenedor para cada libro
+        items(state.books) { book ->
+
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp),
-                verticalAlignment = Alignment.CenterVertically // Alinear verticalmente
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 // Imagen del libro
                 Image(
@@ -32,7 +43,7 @@ fun MainScreen(bookViewModel: BookViewModel) {
                     modifier = Modifier
                         .width(150.dp)
                         .height(200.dp)
-                        .padding(end = 16.dp) // Espacio a la derecha de la imagen
+                        .padding(end = 16.dp)
                 )
 
                 // Contenedor para el título y el autor
@@ -41,8 +52,8 @@ fun MainScreen(bookViewModel: BookViewModel) {
                     Text(text = book.author)
                 }
             }
-            // Divisor entre libros
-            Divider(color = Color.Gray, thickness = 1.dp)
+
+            HorizontalDivider(thickness = 1.dp, color = Color.Gray)
         }
     }
 }
