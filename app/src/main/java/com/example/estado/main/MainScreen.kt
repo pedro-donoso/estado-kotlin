@@ -1,6 +1,7 @@
 package com.example.estado.main
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -47,7 +48,9 @@ fun MainScreen(bookViewModel: BookViewModel) {
                 )
 
                 // Contenedor para el título y el autor
-                Column(modifier = Modifier.weight(1f)) {
+                Column(modifier = Modifier.weight(1f).clickable {
+                    bookViewModel.onBookClicked(book)
+                }) {
                     Text(text = book.title, modifier = Modifier.padding(bottom = 4.dp))
                     Text(text = book.author)
                 }
