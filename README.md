@@ -80,3 +80,13 @@ creo directory -> layout -> layout resource file -> activity_main
 ```
 class MainActivity : ComponentActivity() {...
 ```
+
+### 8. Cambio título app:
+```
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+
+        supportActionBar?.title = "Mi Colección de Libros"
+```
