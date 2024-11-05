@@ -81,7 +81,7 @@ creo directory -> layout -> layout resource file -> activity_main
 class MainActivity : ComponentActivity() {...
 ```
 
-### 8. Cambio título app:
+### 8. Cambio título App en MainActivity:
 ```
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
