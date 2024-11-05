@@ -74,3 +74,9 @@ creo directory -> layout -> layout resource file -> activity_main
 
     <application
 ```
+
+### 7. Cambio AppCompatActivity() en MainActivity:
+
+```
+class MainActivity : ComponentActivity() {...
+```
