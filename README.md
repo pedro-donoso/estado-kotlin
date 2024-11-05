@@ -13,12 +13,12 @@
     }
 ```
 
-### 2. Agrego dependencias: 
+### 2. Agrego dependencias (Reemplazar por versión actual y Sincronizar):
 ```
 val nav_version = "2.7.7"
-// Navigation
-implementation(libs.androidx.navigation.fragment.ktx)
-implementation(libs.androidx.navigation.ui.ktx)
+    // Navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 ```
 
 ### 3. Configuro activity_main:
