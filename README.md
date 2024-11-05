@@ -39,7 +39,7 @@ creo directory -> layout -> layout resource file -> activity_main
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-### 4. Configuro themes:
+### 4. Configuro themes (res -> values -> themes.xml):
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
