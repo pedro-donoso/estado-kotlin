@@ -45,7 +45,7 @@ creo directory -> layout -> layout resource file -> activity_main
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Estado" parent="Theme.AppCompat" />
+    <style name="Theme.Estado" parent="Theme.AppCompat.DayNight.DarkActionBar" />
 </resources>
 ```
 
