@@ -78,7 +78,7 @@ creo directory -> layout -> layout resource file -> activity_main
 ### 7. Cambio AppCompatActivity() en MainActivity:
 
 ```
-class MainActivity : ComponentActivity() {...
+class MainActivity : AppCompatActivity() {...
 ```
 
 ### 8. Cambio título App en MainActivity:
